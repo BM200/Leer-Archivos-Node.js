@@ -36,12 +36,13 @@ function mostrarMenu() {
 /**
  * Lee el archivo inventario.inv, imprime su contenido y maneja excepciones.
  */
-function leerEImprimirArchivo() {
-  const nombreArchivo = 'inventario.inv';
+async function leerEImprimirArchivo() {
+  
+    const nombreArchivo = 'inventario.inv';
 
   try {
     // Intentar leer el archivo de forma síncrona con codificación utf8. 
-    const data = fs.readFileSync(nombreArchivo, 'utf8');
+    const data = await fs.promises.readFile(nombreArchivo, 'utf8');
     console.log(`\n--- Contenido de ${nombreArchivo} ---`);
     console.log(data);
     console.log("------------------------------------");
